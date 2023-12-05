@@ -4,11 +4,10 @@ import os
 from PIL import Image
 import batch
 from icecream import ic
+ctk.set_appearance_mode("Dark")
+ctk.set_default_color_theme("blue")
 
-SHARP = 1
-BRIGHT = 1
-CONTR = 1
-COL = 1
+POLICE_OPTIONS = ('Arial', 15)
 
 
 class App(ctk.CTk):
@@ -22,12 +21,20 @@ class App(ctk.CTk):
         self.contrast = ctk.DoubleVar(value=1)
 
         self.title('Photo-mass')
-        self.menubar = tk.Menu(master=self)
-        self.file_menu = tk.Menu(master=self.menubar, tearoff=False)
-        self.help_menu = tk.Menu(self.menubar, tearoff=False)
+        self.menubar = tk.Menu(master=self, background='black', foreground='white')
+        self.file_menu = tk.Menu(master=self.menubar,
+                                 tearoff=False,
+                                 background='black',
+                                 foreground='white',
+                                 font=POLICE_OPTIONS)
+        self.help_menu = tk.Menu(master=self.menubar,
+                                 tearoff=False,
+                                 background='black',
+                                 foreground='white',
+                                 font=POLICE_OPTIONS)
         self.path = "./images"
         self.pathOut = "./editedImages"
-        self.minsize(600, 500)
+        self.minsize(800, 500)
 
         self.create_menu()
 
